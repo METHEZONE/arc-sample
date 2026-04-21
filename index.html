@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ARC — Hear everything. Lose nothing.</title>
+<meta name="description" content="ARC is an active transparent earable that protects your hearing without muting the world. Built for DJs, musicians, and anyone who refuses to trade their ears for their life." />
+
+<meta property="og:title" content="ARC — Hear everything. Lose nothing." />
+<meta property="og:description" content="An active transparent earable that caps the damage, keeps the music." />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+
+<style>
+  :root {
+    --font-primary: 'HelveticaNowDisplayMedium', -apple-system, system-ui, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+
+    --size-xs: 13.33px;
+    --size-sm: 14px;
+    --size-md: 15px;
+    --size-lg: 16px;
+    --size-xl: 20px;
+    --size-2xl: 44px;
+    --size-3xl: 64px;
+    --size-4xl: 80px;
+
+    --color-base: #000000;
+    --color-text: #121212;
+    --color-muted: #f7f7f7;
+    --color-surface: #ffffff;
+
+    --space-1: 5.6px;
+    --space-2: 9px;
+    --space-3: 10.4px;
+    --space-4: 12px;
+    --space-5: 14px;
+    --space-6: 20px;
+    --space-7: 22px;
+    --space-8: 28px;
+
+    --radius-xs: 56px;
+    --motion-instant: 300ms;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-family: var(--font-primary);
+    font-size: var(--size-lg);
+    font-weight: 400;
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+    transition: opacity var(--motion-instant) ease;
+  }
+  a:hover { opacity: 0.6; }
+  a:focus-visible {
+    outline: 2px solid var(--color-text);
+    outline-offset: 4px;
+  }
+
+  button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+    background: none;
+  }
+
+  /* ---------- Nav ---------- */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: var(--space-6) var(--space-8);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,255,255,0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 100;
+    font-size: var(--size-md);
+  }
+  nav .logo {
+    display: inline-flex;
+    align-items: center;
+    font-size: var(--size-xl);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  nav .logo .logo-mark {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    margin-right: 0.04em;
+    transform: translateY(0.05em);
+  }
+  .logo-dot { fill: #7C5CFF; }
+  nav .menu {
+    display: flex;
+    gap: var(--space-8);
+  }
+  nav .menu a { font-size: var(--size-md); }
+  nav .cta {
+    background: var(--color-text);
+    color: var(--color-surface);
+    padding: var(--space-3) var(--space-7);
+    border-radius: var(--radius-xs);
+    font-size: var(--size-md);
+    transition: background var(--motion-instant) ease;
+  }
+  nav .cta:hover {
+    background: var(--color-base);
+    opacity: 1;
+  }
+
+  @media (max-width: 768px) {
+    nav .menu { display: none; }
+    nav { padding: var(--space-5) var(--space-6); }
+  }
+
+  /* ---------- Section base ---------- */
+  section {
+    padding: 160px var(--space-8) 120px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-size: var(--size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--color-text);
+    opacity: 0.6;
+    margin-bottom: var(--space-6);
+  }
+
+  .display-xl {
+    font-size: var(--size-4xl);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    color: var(--color-text);
+  }
+  .display-lg {
+    font-size: var(--size-3xl);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    color: var(--color-text);
+  }
+  .display-md {
+    font-size: var(--size-2xl);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--color-text);
+  }
+  .body-lg {
+    font-size: var(--size-xl);
+    line-height: 1.4;
+    color: var(--color-text);
+  }
+  .body-md {
+    font-size: var(--size-lg);
+    line-height: 1.6;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 768px) {
+    .display-xl { font-size: 56px; }
+    .display-lg { font-size: 44px; }
+    .display-md { font-size: 32px; }
+    section { padding: 120px var(--space-6) 80px; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: var(--space-8);
+    padding-top: 140px;
+  }
+  .hero-copy h1 {
+    font-size: clamp(56px, 8vw, 120px);
+    font-weight: 500;
+    line-height: 0.9;
+    letter-spacing: -0.05em;
+    color: var(--color-text);
+    margin-bottom: var(--space-7);
+  }
+  .hero-copy h1 span {
+    display: block;
+  }
+  .hero-copy p {
+    font-size: var(--size-xl);
+    line-height: 1.4;
+    margin-bottom: var(--space-8);
+    max-width: 440px;
+  }
+  .hero-cta {
+    display: flex;
+    gap: var(--space-5);
+    align-items: center;
+  }
+  .btn-primary {
+    background: var(--color-text);
+    color: var(--color-surface);
+    padding: var(--space-5) var(--space-8);
+    border-radius: var(--radius-xs);
+    font-size: var(--size-lg);
+    display: inline-block;
+  }
+  .btn-primary:hover {
+    background: var(--color-base);
+    opacity: 1;
+  }
+  .btn-ghost {
+    padding: var(--space-5) 0;
+    font-size: var(--size-lg);
+    border-bottom: 1px solid var(--color-text);
+  }
+  .hero-visual {
+    aspect-ratio: 1 / 1;
+    background: var(--color-muted);
+    border-radius: var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .hero-visual .product-mark {
+    position: absolute;
+    top: var(--space-7);
+    left: var(--space-7);
+    font-size: var(--size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    opacity: 0.6;
+    mix-blend-mode: difference;
+    color: #fff;
+    z-index: 2;
+  }
+  .hero-visual .product-meta {
+    position: absolute;
+    bottom: var(--space-7);
+    right: var(--space-7);
+    font-size: var(--size-sm);
+    text-align: right;
+    line-height: 1.5;
+    mix-blend-mode: difference;
+    color: #fff;
+    z-index: 2;
+  }
+
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; padding-top: 120px; }
+    .hero-visual { max-width: 520px; margin: 0 auto; width: 100%; }
+  }
+
+  /* ---------- Problem ---------- */
+  .problem {
+    background: var(--color-surface);
+    padding: 200px var(--space-8);
+    max-width: none;
+    border-top: 1px solid rgba(18,18,18,0.08);
+  }
+  .problem-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .problem-lede {
+    max-width: 960px;
+    margin-bottom: 120px;
+  }
+  .problem-lede .kicker {
+    font-size: var(--size-md);
+    opacity: 0.5;
+    margin-bottom: var(--space-7);
+  }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+    border-top: 1px solid rgba(18,18,18,0.12);
+    padding-top: var(--space-8);
+  }
+  .problem-item .num {
+    font-size: var(--size-md);
+    opacity: 0.4;
+    margin-bottom: var(--space-6);
+  }
+  .problem-item h3 {
+    font-size: 28px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-6);
+  }
+  .problem-item p {
+    font-size: var(--size-lg);
+    line-height: 1.5;
+    opacity: 0.75;
+  }
+  @media (max-width: 768px) {
+    .problem-grid { grid-template-columns: 1fr; gap: var(--space-8); }
+    .problem { padding: 120px var(--space-6); }
+  }
+
+  /* ---------- Names (Beethoven / Alesso) ---------- */
+  .names {
+    background: var(--color-muted);
+    padding: 200px var(--space-8);
+    max-width: none;
+  }
+  .names-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .names h2 {
+    font-size: clamp(44px, 6vw, 88px);
+    font-weight: 500;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-8);
+    max-width: 900px;
+  }
+  .names-list {
+    margin-top: 80px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-6);
+    border-top: 1px solid rgba(18,18,18,0.12);
+    padding-top: var(--space-7);
+  }
+  .name-card {
+    padding: var(--space-6) 0;
+  }
+  .name-card .who {
+    font-size: var(--size-xl);
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-3);
+  }
+  .name-card .what {
+    font-size: var(--size-sm);
+    opacity: 0.6;
+    line-height: 1.4;
+  }
+  @media (max-width: 768px) {
+    .names-list { grid-template-columns: repeat(2, 1fr); }
+    .names { padding: 120px var(--space-6); }
+  }
+
+  /* ---------- Product / How it works ---------- */
+  .how {
+    padding: 200px var(--space-8);
+    max-width: none;
+  }
+  .how-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .how-header {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--space-8);
+    margin-bottom: 120px;
+    align-items: end;
+  }
+  .stages {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .stage {
+    display: grid;
+    grid-template-columns: 120px 1fr 1fr;
+    gap: var(--space-8);
+    padding: 60px 0;
+    border-top: 1px solid rgba(18,18,18,0.12);
+    align-items: start;
+  }
+  .stage:last-child { border-bottom: 1px solid rgba(18,18,18,0.12); }
+  .stage .stage-num {
+    font-size: var(--size-md);
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.5;
+  }
+  .stage .stage-title {
+    font-size: var(--size-3xl);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    line-height: 1;
+  }
+  .stage .stage-body {
+    font-size: var(--size-lg);
+    line-height: 1.6;
+    opacity: 0.8;
+  }
+  .stage .stage-body .sub {
+    font-size: var(--size-sm);
+    opacity: 0.7;
+    margin-top: var(--space-5);
+    padding-top: var(--space-5);
+    border-top: 1px solid rgba(18,18,18,0.08);
+    display: block;
+  }
+  @media (max-width: 960px) {
+    .how-header { grid-template-columns: 1fr; }
+    .stage {
+      grid-template-columns: 1fr;
+      gap: var(--space-6);
+      padding: var(--space-8) 0;
+    }
+    .stage .stage-title { font-size: 44px; }
+    .how { padding: 120px var(--space-6); }
+  }
+
+  /* ---------- Science ---------- */
+  .science {
+    background: var(--color-text);
+    color: var(--color-surface);
+    padding: 200px var(--space-8);
+    max-width: none;
+  }
+  .science-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  .science-inner h2 {
+    font-size: clamp(44px, 6vw, 88px);
+    font-weight: 500;
+    line-height: 0.95;
+    letter-spacing: -0.03em;
+    margin-bottom: var(--space-8);
+    color: var(--color-surface);
+    max-width: 1000px;
+  }
+  .science-inner .lead {
+    font-size: var(--size-xl);
+    line-height: 1.5;
+    opacity: 0.7;
+    max-width: 720px;
+    margin-bottom: 120px;
+  }
+  .spec-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-7);
+    border-top: 1px solid rgba(247,247,247,0.2);
+    padding-top: var(--space-7);
+  }
+  .spec .label {
+    font-size: var(--size-sm);
+    opacity: 0.5;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: var(--space-5);
+  }
+  .spec .value {
+    font-size: 32px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: var(--space-3);
+  }
+  .spec .unit {
+    font-size: var(--size-sm);
+    opacity: 0.55;
+    line-height: 1.4;
+  }
+  @media (max-width: 768px) {
+    .spec-grid { grid-template-columns: repeat(2, 1fr); }
+    .science { padding: 120px var(--space-6); }
+  }
+
+  /* ---------- Anatomy (exploded view) ---------- */
+  .anatomy {
+    margin: 120px 0 160px;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .anatomy .anatomy-header {
+    font-size: var(--size-sm);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.4;
+    margin-bottom: var(--space-7);
+  }
+  .anatomy h3 {
+    font-size: clamp(32px, 4vw, 56px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1;
+    margin-bottom: var(--space-7);
+  }
+  .anatomy .desc {
+    font-size: var(--size-lg);
+    line-height: 1.6;
+    opacity: 0.65;
+    max-width: 460px;
+  }
+  .anatomy-svg-wrap {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1.1;
+    background: radial-gradient(ellipse at center, rgba(247,247,247,0.04) 0%, transparent 70%);
+    border-radius: var(--space-6);
+  }
+  .anatomy-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .anatomy-svg .part { opacity: 0; }
+  .anatomy-svg .part-shape {
+    fill: none;
+    stroke: rgba(247,247,247,0.85);
+    stroke-width: 1.2;
+  }
+  .anatomy-svg .part-shape-fill {
+    fill: rgba(247,247,247,0.04);
+    stroke: rgba(247,247,247,0.85);
+    stroke-width: 1.2;
+  }
+  .anatomy-svg .part-dot { fill: rgba(247,247,247,0.85); }
+  .anatomy-svg .callout-line {
+    stroke: rgba(247,247,247,0.3);
+    stroke-width: 1;
+    stroke-dasharray: 2 3;
+  }
+  .anatomy-svg .callout-num {
+    fill: rgba(247,247,247,0.75);
+    font-family: var(--font-primary);
+    font-size: 11px;
+    letter-spacing: 0.15em;
+  }
+  .anatomy-svg .callout-label {
+    fill: rgba(247,247,247,0.95);
+    font-family: var(--font-primary);
+    font-size: 13px;
+    font-weight: 500;
+  }
+  .anatomy-svg .callout-spec {
+    fill: rgba(247,247,247,0.5);
+    font-family: var(--font-primary);
+    font-size: 11px;
+  }
+  @media (max-width: 960px) {
+    .anatomy { grid-template-columns: 1fr; gap: var(--space-8); }
+    .anatomy-svg-wrap { max-width: 520px; margin: 0 auto; }
+  }
+
+  /* ---------- Signal pipeline ---------- */
+  .pipeline {
+    margin: 80px 0 160px;
+    padding: 80px 0;
+    border-top: 1px solid rgba(247,247,247,0.15);
+    border-bottom: 1px solid rgba(247,247,247,0.15);
+  }
+  .pipeline-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 60px;
+    flex-wrap: wrap;
+    gap: var(--space-6);
+  }
+  .pipeline-header .eyebrow-dim {
+    font-size: var(--size-sm);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0.4;
+  }
+  .pipeline-header h3 {
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    flex: 1;
+    min-width: 300px;
+  }
+  .pipeline-header .latency-badge {
+    font-size: var(--size-sm);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    padding: var(--space-3) var(--space-6);
+    border: 1px solid rgba(247,247,247,0.3);
+    border-radius: var(--radius-xs);
+  }
+  .pipeline-diagram {
+    width: 100%;
+    height: 180px;
+    display: block;
+  }
+  .pipeline-diagram .node {
+    fill: rgba(247,247,247,0.04);
+    stroke: rgba(247,247,247,0.6);
+    stroke-width: 1;
+  }
+  .pipeline-diagram .node-label {
+    fill: rgba(247,247,247,0.95);
+    font-family: var(--font-primary);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-anchor: middle;
+  }
+  .pipeline-diagram .node-sub {
+    fill: rgba(247,247,247,0.5);
+    font-family: var(--font-primary);
+    font-size: 10px;
+    text-anchor: middle;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pipeline-diagram .wire {
+    stroke: rgba(247,247,247,0.3);
+    stroke-width: 1;
+    fill: none;
+  }
+  .pipeline-diagram .particle {
+    fill: rgba(247,247,247,0.95);
+  }
+  .pipeline-legend {
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--size-sm);
+    opacity: 0.55;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  @media (max-width: 960px) {
+    .pipeline-diagram { height: 140px; }
+    .pipeline-legend { flex-direction: column; gap: var(--space-4); }
+  }
+
+  /* ---------- Founder ---------- */
+  .founder {
+    padding: 200px var(--space-8);
+    max-width: none;
+    background: var(--color-muted);
+  }
+  .founder-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .founder-visual {
+    aspect-ratio: 4 / 5;
+    background: var(--color-surface);
+    border-radius: var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .founder-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .founder-visual .caption {
+    position: absolute;
+    bottom: var(--space-7);
+    left: var(--space-7);
+    font-size: var(--size-sm);
+    color: #fff;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    mix-blend-mode: difference;
+    z-index: 2;
+  }
+  .founder-quote {
+    font-size: clamp(28px, 3.5vw, 44px);
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-8);
+  }
+  .founder-attrib {
+    font-size: var(--size-md);
+    opacity: 0.6;
+    line-height: 1.5;
+  }
+  .founder-attrib strong {
+    font-weight: 500;
+    opacity: 1;
+  }
+  @media (max-width: 960px) {
+    .founder-inner { grid-template-columns: 1fr; gap: var(--space-8); }
+    .founder { padding: 120px var(--space-6); }
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq {
+    padding: 200px var(--space-8);
+    max-width: none;
+  }
+  .faq-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .faq-inner h2 {
+    font-size: clamp(44px, 6vw, 80px);
+    font-weight: 500;
+    letter-spacing: -0.03em;
+    margin-bottom: 80px;
+    line-height: 1;
+  }
+  .faq-item {
+    border-top: 1px solid rgba(18,18,18,0.12);
+    padding: var(--space-8) 0;
+  }
+  .faq-item:last-child { border-bottom: 1px solid rgba(18,18,18,0.12); }
+  .faq-q {
+    font-size: 28px;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--space-6);
+    line-height: 1.2;
+  }
+  .faq-a {
+    font-size: var(--size-lg);
+    line-height: 1.6;
+    opacity: 0.75;
+    max-width: 780px;
+  }
+  @media (max-width: 768px) {
+    .faq { padding: 120px var(--space-6); }
+    .faq-q { font-size: 22px; }
+  }
+
+  /* ---------- Waitlist ---------- */
+  .waitlist {
+    background: var(--color-text);
+    color: var(--color-surface);
+    padding: 200px var(--space-8);
+    max-width: none;
+    text-align: center;
+  }
+  .waitlist h2 {
+    font-size: clamp(56px, 9vw, 140px);
+    font-weight: 500;
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    margin-bottom: var(--space-8);
+  }
+  .waitlist p {
+    font-size: var(--size-xl);
+    opacity: 0.6;
+    max-width: 560px;
+    margin: 0 auto var(--space-8);
+    line-height: 1.4;
+  }
+  .waitlist-form {
+    display: flex;
+    max-width: 520px;
+    margin: 0 auto;
+    gap: var(--space-4);
+  }
+  .waitlist-form input {
+    flex: 1;
+    background: transparent;
+    border: 1px solid rgba(247,247,247,0.3);
+    padding: var(--space-6) var(--space-7);
+    border-radius: var(--radius-xs);
+    color: var(--color-surface);
+    font-family: inherit;
+    font-size: var(--size-lg);
+    transition: border-color var(--motion-instant) ease;
+  }
+  .waitlist-form input::placeholder {
+    color: rgba(247,247,247,0.4);
+  }
+  .waitlist-form input:focus {
+    outline: none;
+    border-color: var(--color-surface);
+  }
+  .waitlist-form button {
+    background: var(--color-surface);
+    color: var(--color-text);
+    padding: var(--space-6) var(--space-8);
+    border-radius: var(--radius-xs);
+    font-size: var(--size-lg);
+    font-family: inherit;
+    transition: opacity var(--motion-instant) ease;
+  }
+  .waitlist-form button:hover {
+    opacity: 0.8;
+  }
+  .waitlist-meta {
+    margin-top: var(--space-8);
+    font-size: var(--size-sm);
+    opacity: 0.4;
+    letter-spacing: 0.05em;
+  }
+  @media (max-width: 640px) {
+    .waitlist-form { flex-direction: column; }
+    .waitlist { padding: 120px var(--space-6); }
+  }
+
+  /* ---------- Footer ---------- */
+  footer {
+    padding: var(--space-8);
+    background: var(--color-text);
+    color: var(--color-surface);
+    border-top: 1px solid rgba(247,247,247,0.1);
+  }
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: var(--space-8);
+    padding: var(--space-8) 0;
+  }
+  .footer-brand {
+    font-size: var(--size-xl);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--space-5);
+  }
+  .footer-tag {
+    font-size: var(--size-sm);
+    opacity: 0.5;
+    max-width: 280px;
+    line-height: 1.5;
+  }
+  .footer-col h4 {
+    font-size: var(--size-sm);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    opacity: 0.5;
+    margin-bottom: var(--space-6);
+    font-weight: 400;
+  }
+  .footer-col ul { list-style: none; }
+  .footer-col li { margin-bottom: var(--space-4); }
+  .footer-col a { font-size: var(--size-md); }
+  .footer-bottom {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--space-6) 0 0;
+    border-top: 1px solid rgba(247,247,247,0.1);
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--size-sm);
+    opacity: 0.4;
+  }
+  @media (max-width: 768px) {
+    .footer-inner { grid-template-columns: 1fr 1fr; gap: var(--space-7); }
+    .footer-bottom { flex-direction: column; gap: var(--space-4); }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo" aria-label="ARC">
+    <svg class="logo-mark" viewBox="0 0 22 22" aria-hidden="true">
+      <path d="M 2 20 L 11 2 L 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter" />
+      <circle class="logo-dot" cx="9.5" cy="15.5" r="2.2" />
+    </svg><span>RC</span>
+  </div>
+  <div class="menu">
+    <a href="#product">Product</a>
+    <a href="#science">Science</a>
+    <a href="#story">Story</a>
+    <a href="#faq">FAQ</a>
+  </div>
+  <a href="#waitlist" class="cta">Join waitlist</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-copy">
+    <h1>
+      <span>Hear</span>
+      <span>everything.</span>
+      <span>Lose nothing.</span>
+    </h1>
+    <p>
+      ARC is an active transparent earable that caps dangerous sound in real time — without muting the music, the crowd, or the conversation.
+    </p>
+    <div class="hero-cta">
+      <a href="#waitlist" class="btn-primary">Reserve for $1</a>
+      <a href="#product" class="btn-ghost">How it works</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <img src="assets/hero_product.png" alt="ARC earable held between fingers" />
+    <span class="product-mark">ARC / 001</span>
+    <span class="product-meta">
+      active transparent earable<br />
+      ships Q4 2026
+    </span>
+  </div>
+</section>
+
+<section class="problem" id="problem">
+  <div class="problem-inner">
+    <div class="problem-lede">
+      <div class="kicker">The thing about loud.</div>
+      <h2 class="display-lg">
+        Hearing is the one sense your body cannot rebuild. Once the cells are gone, they are gone.
+      </h2>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <div class="num">01</div>
+        <h3>Irreversible</h3>
+        <p>Cochlear hair cells do not regenerate. Damage from one night compounds silently over a decade.</p>
+      </div>
+      <div class="problem-item">
+        <div class="num">02</div>
+        <h3>Silent until it isn&rsquo;t</h3>
+        <p>Standard audiograms miss 30&ndash;40% of damage. By the time you notice, the synapses are already thinning.</p>
+      </div>
+      <div class="problem-item">
+        <div class="num">03</div>
+        <h3>Today&rsquo;s options ask you to choose</h3>
+        <p>Foam earplugs muffle everything. Earbuds ignore the room. Neither protects you the way your ears actually work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="names">
+  <div class="names-inner">
+    <div class="eyebrow">What the world already lost</div>
+    <h2>
+      The people who loved sound the most were the first to lose it.
+    </h2>
+    <p class="body-lg" style="max-width: 720px; opacity: 0.7;">
+      Beethoven wrote the Heiligenstadt Testament at 32. Alesso walked off stage mid-set. The list is not a warning. It is a pattern.
+    </p>
+    <div class="names-list">
+      <div class="name-card">
+        <div class="who">Beethoven</div>
+        <div class="what">composer &mdash; profound hearing loss by 40s</div>
+      </div>
+      <div class="name-card">
+        <div class="who">Alesso</div>
+        <div class="what">DJ &mdash; tinnitus, reduced touring</div>
+      </div>
+      <div class="name-card">
+        <div class="who">Chris Martin</div>
+        <div class="what">Coldplay &mdash; tinnitus since teens</div>
+      </div>
+      <div class="name-card">
+        <div class="who">will.i.am</div>
+        <div class="what">Black Eyed Peas &mdash; chronic tinnitus</div>
+      </div>
+      <div class="name-card">
+        <div class="who">Pete Townshend</div>
+        <div class="what">The Who &mdash; permanent hearing damage</div>
+      </div>
+      <div class="name-card">
+        <div class="who">Eric Clapton</div>
+        <div class="what">hearing loss &amp; tinnitus</div>
+      </div>
+      <div class="name-card">
+        <div class="who">Brian Johnson</div>
+        <div class="what">AC/DC &mdash; forced off tour, 2016</div>
+      </div>
+      <div class="name-card">
+        <div class="who">Grimes</div>
+        <div class="what">tinnitus &amp; performance constraints</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="product">
+  <div class="how-inner">
+    <div class="how-header">
+      <div class="eyebrow">The product</div>
+      <h2 class="display-lg">
+        Three stages. One device that grows with you.
+      </h2>
+    </div>
+
+    <div class="stages">
+      <div class="stage">
+        <div class="stage-num">Stage 01 &middot; Shipping</div>
+        <div class="stage-title">Cap the damage.</div>
+        <div class="stage-body">
+          An 8-band multiband compressor with 3&nbsp;ms lookahead listens through external MEMS microphones and hard-limits output at 85&nbsp;dB SPL. Hybrid ANC cancels the dangerous floor. ISO&nbsp;226 loudness compensation keeps the music shaped the way your ears expect.
+          <span class="sub">You still hear your friend. You still feel the drop. The damage stops.</span>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">Stage 02 &middot; 2027</div>
+        <div class="stage-title">Read the room &mdash; and your brain.</div>
+        <div class="stage-body">
+          Carbon-loaded silicone electrodes capture in-ear EEG. PPG, temperature, and IMU sensors map your physiological load. The device adapts to attention, fatigue, and cognitive state in real time.
+          <span class="sub">94.2% cognitive load classification. Earlier than any smartwatch, by minutes.</span>
+        </div>
+      </div>
+
+      <div class="stage">
+        <div class="stage-num">Stage 03 &middot; 2028+</div>
+        <div class="stage-title">An agent that lives in your ear.</div>
+        <div class="stage-body">
+          Auditory Attention Decoding turns your focus into a command. The voice you want gets louder. The noise you don&rsquo;t fades out. An ambient LLM coach lives at the edge &mdash; no phone, no screen, no tap.
+          <span class="sub">The first truly always-on interface that respects what you&rsquo;re already doing.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="science" id="science">
+  <div class="science-inner">
+    <div class="eyebrow" style="opacity: 0.4; color: var(--color-surface);">Engineering</div>
+    <h2>
+      Built around how the cochlea actually fails.
+    </h2>
+    <p class="lead">
+      Three damage pathways &mdash; oxidative stress, mechanical shearing, glutamate excitotoxicity &mdash; each answered by a specific stage of the DSP pipeline. Not a filter. Not a volume knob. A cochlear-aware system.
+    </p>
+    <div class="anatomy" id="anatomy">
+      <div>
+        <div class="anatomy-header">Anatomy</div>
+        <h3>Six layers. One cochlear-aware system.</h3>
+        <p class="desc">
+          Each component answers a specific failure mode. External mics catch the waveform before it hits you. The DSP shapes it. The driver delivers a safe version. No layer is optional.
+        </p>
+      </div>
+      <div class="anatomy-svg-wrap">
+        <svg class="anatomy-svg" viewBox="0 0 500 500" role="img" aria-label="ARC earable exploded view">
+          <g class="part" data-part="1">
+            <rect class="part-shape-fill" x="35" y="24" width="200" height="38" rx="19" />
+            <line class="callout-line" x1="235" y1="43" x2="280" y2="43" />
+            <text class="callout-num" x="290" y="38">01</text>
+            <text class="callout-label" x="290" y="52">Outer housing</text>
+            <text class="callout-spec" x="290" y="66">Anodized aluminum, 42 &times; 18 mm</text>
+          </g>
+          <g class="part" data-part="2">
+            <rect class="part-shape-fill" x="45" y="108" width="180" height="14" rx="7" />
+            <circle class="part-dot" cx="85" cy="115" r="2.4" />
+            <circle class="part-dot" cx="135" cy="115" r="2.4" />
+            <circle class="part-dot" cx="185" cy="115" r="2.4" />
+            <line class="callout-line" x1="225" y1="115" x2="280" y2="115" />
+            <text class="callout-num" x="290" y="110">02</text>
+            <text class="callout-label" x="290" y="124">MEMS mic array</text>
+            <text class="callout-spec" x="290" y="138">Feedforward, 3 channels</text>
+          </g>
+          <g class="part" data-part="3">
+            <ellipse class="part-shape-fill" cx="135" cy="190" rx="88" ry="12" />
+            <line class="callout-line" x1="223" y1="190" x2="280" y2="190" />
+            <text class="callout-num" x="290" y="185">03</text>
+            <text class="callout-label" x="290" y="199">Battery</text>
+            <text class="callout-spec" x="290" y="213">65 mAh Li-polymer, 8 hr</text>
+          </g>
+          <g class="part" data-part="4">
+            <rect class="part-shape-fill" x="110" y="248" width="50" height="50" rx="4" />
+            <line class="part-shape" x1="122" y1="260" x2="148" y2="260" />
+            <line class="part-shape" x1="122" y1="273" x2="148" y2="273" />
+            <line class="part-shape" x1="122" y1="286" x2="148" y2="286" />
+            <circle class="part-dot" cx="135" cy="273" r="1.8" />
+            <line class="callout-line" x1="160" y1="273" x2="280" y2="273" />
+            <text class="callout-num" x="290" y="268">04</text>
+            <text class="callout-label" x="290" y="282">DSP + SoC</text>
+            <text class="callout-spec" x="290" y="296">200 MHz, 24-bit pipeline</text>
+          </g>
+          <g class="part" data-part="5">
+            <circle class="part-shape-fill" cx="135" cy="360" r="40" />
+            <circle class="part-shape" cx="135" cy="360" r="28" />
+            <circle class="part-shape" cx="135" cy="360" r="14" />
+            <circle class="part-dot" cx="135" cy="360" r="3" />
+            <line class="callout-line" x1="175" y1="360" x2="280" y2="360" />
+            <text class="callout-num" x="290" y="355">05</text>
+            <text class="callout-label" x="290" y="369">Balanced armature driver</text>
+            <text class="callout-spec" x="290" y="383">Capped at 85 dB SPL</text>
+          </g>
+          <g class="part" data-part="6">
+            <path class="part-shape-fill" d="M 75 440 Q 75 465 105 475 L 165 475 Q 195 465 195 440 Q 195 420 135 420 Q 75 420 75 440 Z" />
+            <line class="callout-line" x1="195" y1="447" x2="280" y2="447" />
+            <text class="callout-num" x="290" y="442">06</text>
+            <text class="callout-label" x="290" y="456">Silicone eartip</text>
+            <text class="callout-spec" x="290" y="470">Medical-grade, 4 sizes</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+
+    <div class="pipeline" id="pipeline">
+      <div class="pipeline-header">
+        <div>
+          <div class="eyebrow-dim">Signal path</div>
+          <h3>From air to eardrum in under three milliseconds.</h3>
+        </div>
+        <div class="latency-badge">Total latency &lt; 3 ms</div>
+      </div>
+
+      <svg class="pipeline-diagram" viewBox="0 0 1200 180" preserveAspectRatio="xMidYMid meet">
+        <!-- Main wire -->
+        <line class="wire" x1="40" y1="90" x2="1160" y2="90" />
+
+        <!-- Nodes (diamonds at x: 80, 280, 480, 680, 880, 1080) -->
+        <g>
+          <rect class="node" x="65" y="75" width="30" height="30" transform="rotate(45 80 90)" />
+          <rect class="node" x="265" y="75" width="30" height="30" transform="rotate(45 280 90)" />
+          <rect class="node" x="465" y="75" width="30" height="30" transform="rotate(45 480 90)" />
+          <rect class="node" x="665" y="75" width="30" height="30" transform="rotate(45 680 90)" />
+          <rect class="node" x="865" y="75" width="30" height="30" transform="rotate(45 880 90)" />
+          <rect class="node" x="1065" y="75" width="30" height="30" transform="rotate(45 1080 90)" />
+        </g>
+
+        <!-- Node labels above -->
+        <g>
+          <text class="node-label" x="80" y="50">MIC</text>
+          <text class="node-label" x="280" y="50">ADC</text>
+          <text class="node-label" x="480" y="50">LOOKAHEAD</text>
+          <text class="node-label" x="680" y="50">MBDRC</text>
+          <text class="node-label" x="880" y="50">LOUDNESS EQ</text>
+          <text class="node-label" x="1080" y="50">CAP + DRIVER</text>
+        </g>
+
+        <!-- Node sublabels below -->
+        <g>
+          <text class="node-sub" x="80" y="140">External MEMS</text>
+          <text class="node-sub" x="280" y="140">24-bit / 48 kHz</text>
+          <text class="node-sub" x="480" y="140">3 ms buffer</text>
+          <text class="node-sub" x="680" y="140">8 bands</text>
+          <text class="node-sub" x="880" y="140">ISO 226 compensation</text>
+          <text class="node-sub" x="1080" y="140">Hard limit 85 dB SPL</text>
+        </g>
+
+        <!-- Flowing particles (3 dots staggered along the wire) -->
+        <circle class="particle" cx="40" cy="90" r="3.5">
+          <animate attributeName="cx" values="40;1160" dur="4s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0;1;1;1;0" keyTimes="0;0.05;0.5;0.95;1" dur="4s" repeatCount="indefinite" />
+        </circle>
+        <circle class="particle" cx="40" cy="90" r="3.5">
+          <animate attributeName="cx" values="40;1160" dur="4s" begin="1.3s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0;1;1;1;0" keyTimes="0;0.05;0.5;0.95;1" dur="4s" begin="1.3s" repeatCount="indefinite" />
+        </circle>
+        <circle class="particle" cx="40" cy="90" r="3.5">
+          <animate attributeName="cx" values="40;1160" dur="4s" begin="2.6s" repeatCount="indefinite" />
+          <animate attributeName="opacity" values="0;1;1;1;0" keyTimes="0;0.05;0.5;0.95;1" dur="4s" begin="2.6s" repeatCount="indefinite" />
+        </circle>
+      </svg>
+
+      <div class="pipeline-legend">
+        <span>In &mdash; ambient waveform</span>
+        <span>Out &mdash; safe signal</span>
+      </div>
+    </div>
+
+    <div class="spec-grid">
+      <div class="spec">
+        <div class="label">Output cap</div>
+        <div class="value">85 dB</div>
+        <div class="unit">hard limit, WHO-ITU H.870 compliant</div>
+      </div>
+      <div class="spec">
+        <div class="label">Latency</div>
+        <div class="value">&lt;3 ms</div>
+        <div class="unit">lookahead DSP, imperceptible</div>
+      </div>
+      <div class="spec">
+        <div class="label">Sampling</div>
+        <div class="value">24 / 48</div>
+        <div class="unit">24-bit depth, 48 kHz</div>
+      </div>
+      <div class="spec">
+        <div class="label">Bands</div>
+        <div class="value">8</div>
+        <div class="unit">multiband dynamic range compression</div>
+      </div>
+      <div class="spec">
+        <div class="label">ANC</div>
+        <div class="value">Hybrid</div>
+        <div class="unit">feedforward + feedback</div>
+      </div>
+      <div class="spec">
+        <div class="label">Transparency</div>
+        <div class="value">ISO 226</div>
+        <div class="unit">equal-loudness compensated EQ</div>
+      </div>
+      <div class="spec">
+        <div class="label">Biosensors</div>
+        <div class="value">EEG + PPG</div>
+        <div class="unit">Stage 02 &mdash; carbon-loaded silicone</div>
+      </div>
+      <div class="spec">
+        <div class="label">Battery</div>
+        <div class="value">8 hr</div>
+        <div class="unit">continuous, with case: 32 hr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="founder" id="story">
+  <div class="founder-inner">
+    <div class="founder-visual">
+      <img src="assets/founder_dj.png" alt="the ZONE performing" />
+      <span class="caption">THE ZONE &middot; 2025</span>
+    </div>
+    <div>
+      <div class="eyebrow">The founder</div>
+      <p class="founder-quote">
+        &ldquo;I built this because I was going to lose the thing I love the most. I tried Loop. I tried the foam. Nothing respected the music. So I built the one I wanted.&rdquo;
+      </p>
+      <p class="founder-attrib">
+        <strong>Minsung Park &middot; founder, DJ</strong><br />
+        Performing as the ZONE since 2022. THE ZONE BIO, Seoul.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="faq-inner">
+    <h2>Questions.</h2>
+
+    <div class="faq-item">
+      <div class="faq-q">Is this earplugs?</div>
+      <div class="faq-a">
+        No. Foam earplugs attenuate everything by blocking the ear canal. ARC listens, processes, and plays back a safe version of the same room in under 3&nbsp;ms. You hear the space. You do not hear the damage.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is this earbuds?</div>
+      <div class="faq-a">
+        No. Earbuds replace the world with a stream. ARC&rsquo;s default mode is the world &mdash; capped, shaped, and preserved &mdash; not a replacement for it.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Is this a hearing aid?</div>
+      <div class="faq-a">
+        No. Hearing aids amplify what you are losing. ARC protects what you still have. Stage 02 adds biosensing; Stage 03 adds attention-based control. Neither is medical amplification.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">Who is ARC for?</div>
+      <div class="faq-a">
+        DJs, touring musicians, production crews, rave regulars, construction and industrial workers, parents of loud teenagers, and anyone whose life is louder than the average day and whose ears do not want to pay for it.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q">When does it ship?</div>
+      <div class="faq-a">
+        Stage 01 hardware ships Q4 2026. Waitlist is $1 to hold your place and gets you the founder price plus a named-plate on the first production run.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="waitlist" id="waitlist">
+  <h2>
+    Keep<br />the sound.
+  </h2>
+  <p>
+    First 1,000 reservations get the founder price and a named plate on the first production run.
+  </p>
+  <form class="waitlist-form" onsubmit="event.preventDefault(); alert('Thanks &mdash; you are on the list.');">
+    <input type="email" placeholder="you@youremail.com" required aria-label="email" />
+    <button type="submit">Reserve $1</button>
+  </form>
+  <div class="waitlist-meta">
+    Fully refundable &middot; No charge until ship
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand logo" aria-label="ARC">
+        <svg class="logo-mark" viewBox="0 0 22 22" aria-hidden="true">
+          <path d="M 2 20 L 11 2 L 20 20" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="square" stroke-linejoin="miter" />
+          <circle class="logo-dot" cx="9.5" cy="15.5" r="2.2" />
+        </svg><span>RC</span>
+      </div>
+      <div class="footer-tag">Adaptive real-time cochlear protection. Hear everything. Lose nothing.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Product</h4>
+      <ul>
+        <li><a href="#product">How it works</a></li>
+        <li><a href="#science">Science</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#story">Story</a></li>
+        <li><a href="#">Careers</a></li>
+        <li><a href="#">Press</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:hello@arc.audio">hello@arc.audio</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">X / Twitter</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>&copy; 2026 ARC Labs &middot; Seoul</div>
+    <div>Made for ears that still work.</div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script>
+  gsap.registerPlugin(ScrollTrigger);
+
+  // Anatomy exploded view — stagger reveal when section enters viewport
+  gsap.set('.anatomy-svg .part', { opacity: 0, y: 12 });
+  ScrollTrigger.create({
+    trigger: '#anatomy',
+    start: 'top 70%',
+    once: true,
+    onEnter: () => {
+      gsap.to('.anatomy-svg .part', {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.12,
+        ease: 'power2.out',
+      });
+    },
+  });
+
+  // Pipeline nodes — fade in sequentially when pipeline enters
+  gsap.set('.pipeline-diagram .node, .pipeline-diagram .node-label, .pipeline-diagram .node-sub', {
+    opacity: 0,
+  });
+  ScrollTrigger.create({
+    trigger: '#pipeline',
+    start: 'top 75%',
+    once: true,
+    onEnter: () => {
+      gsap.to('.pipeline-diagram .node', {
+        opacity: 1,
+        duration: 0.4,
+        stagger: 0.08,
+        ease: 'power2.out',
+      });
+      gsap.to('.pipeline-diagram .node-label, .pipeline-diagram .node-sub', {
+        opacity: 1,
+        duration: 0.4,
+        stagger: 0.05,
+        delay: 0.2,
+        ease: 'power2.out',
+      });
+    },
+  });
+
+  // Refresh on load so sizes settle before the timeline locks in
+  window.addEventListener('load', () => ScrollTrigger.refresh());
+</script>
+
+</body>
+</html>
