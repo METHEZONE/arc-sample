@@ -436,6 +436,177 @@
     .how { padding: 120px var(--space-6); }
   }
 
+  /* ---------- Sound demo ---------- */
+  .sound-demo {
+    background: var(--color-muted);
+    padding: 180px var(--space-8);
+    max-width: none;
+  }
+  .sound-demo-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: clamp(48px, 7vw, 104px);
+    align-items: center;
+  }
+  .sound-demo-copy p {
+    max-width: 560px;
+    margin-top: var(--space-7);
+    font-size: var(--size-xl);
+    line-height: 1.5;
+    opacity: 0.68;
+  }
+  .demo-console {
+    background: var(--color-text);
+    color: var(--color-surface);
+    padding: clamp(24px, 4vw, 48px);
+    border-radius: 32px;
+    min-height: 520px;
+    display: grid;
+    align-content: space-between;
+    gap: var(--space-8);
+    box-shadow: 0 40px 120px rgba(18,18,18,0.18);
+  }
+  .demo-status {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--space-6);
+    align-items: flex-start;
+    font-size: var(--size-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.64;
+  }
+  .demo-readout {
+    text-align: right;
+  }
+  .demo-wave {
+    height: 180px;
+    display: grid;
+    grid-template-columns: repeat(28, 1fr);
+    gap: 7px;
+    align-items: end;
+  }
+  .demo-bar {
+    display: block;
+    width: 100%;
+    height: calc(var(--level) * 1%);
+    min-height: 18px;
+    border-radius: 999px;
+    background: linear-gradient(180deg, #ffffff 0%, rgba(255,255,255,0.42) 100%);
+    opacity: 0.72;
+    transform-origin: bottom;
+    transition: height 460ms ease, opacity 460ms ease, transform 460ms ease;
+  }
+  .demo-console.is-arc .demo-bar {
+    opacity: 0.58;
+    transform: scaleY(0.72);
+  }
+  .demo-controls {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: var(--space-5);
+    align-items: center;
+  }
+  .demo-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    padding: 6px;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+  }
+  .demo-toggle button,
+  .demo-play {
+    min-height: 48px;
+    border-radius: 999px;
+    color: var(--color-surface);
+    font-size: var(--size-md);
+    transition: background var(--motion-instant) ease, color var(--motion-instant) ease, opacity var(--motion-instant) ease;
+  }
+  .demo-toggle button {
+    padding: 0 var(--space-7);
+    opacity: 0.58;
+  }
+  .demo-toggle button.active {
+    background: var(--color-surface);
+    color: var(--color-text);
+    opacity: 1;
+  }
+  .demo-play {
+    padding: 0 var(--space-8);
+    background: #7C5CFF;
+    white-space: nowrap;
+  }
+  .demo-play:hover,
+  .demo-toggle button:hover {
+    opacity: 0.78;
+  }
+  .demo-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-5);
+    border-top: 1px solid rgba(255,255,255,0.14);
+    padding-top: var(--space-7);
+  }
+  .demo-metric span {
+    display: block;
+    font-size: var(--size-sm);
+    opacity: 0.48;
+    margin-bottom: var(--space-2);
+  }
+  .demo-metric strong {
+    display: block;
+    font-size: var(--size-xl);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .demo-note {
+    color: var(--color-surface);
+    opacity: 0.44;
+    font-size: var(--size-sm);
+    line-height: 1.5;
+  }
+  @media (max-width: 960px) {
+    .sound-demo {
+      padding: 120px var(--space-6);
+    }
+    .sound-demo-inner {
+      grid-template-columns: 1fr;
+    }
+    .demo-console {
+      min-height: 480px;
+      border-radius: 24px;
+    }
+    .demo-controls {
+      grid-template-columns: 1fr;
+    }
+    .demo-play {
+      width: 100%;
+    }
+    .demo-metrics {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 560px) {
+    .demo-status {
+      flex-direction: column;
+    }
+    .demo-readout {
+      text-align: left;
+    }
+    .demo-wave {
+      height: 140px;
+      gap: 5px;
+      grid-template-columns: repeat(18, 1fr);
+    }
+    .demo-bar:nth-child(n+19) {
+      display: none;
+    }
+  }
+
   /* ---------- Science ---------- */
   .science {
     background: var(--color-text);
@@ -894,6 +1065,7 @@
   </div>
   <div class="menu">
     <a href="#product">Product</a>
+    <a href="#demo">Demo</a>
     <a href="#science">Science</a>
     <a href="#story">Story</a>
     <a href="#faq">FAQ</a>
@@ -1036,6 +1208,87 @@
           <span class="sub">The first truly always-on interface that respects what you&rsquo;re already doing.</span>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section class="sound-demo" id="demo">
+  <div class="sound-demo-inner">
+    <div class="sound-demo-copy">
+      <div class="eyebrow">Listen first</div>
+      <h2 class="display-lg">
+        Switch ARC on without leaving the room.
+      </h2>
+      <p>
+        A low-volume browser sample lets you move between the unprotected scene and ARC processing in one continuous listen. The point is not to mute the world. The point is to soften the risky edge while keeping the cue.
+      </p>
+    </div>
+
+    <div class="demo-console" id="arcDemoConsole" aria-label="ARC with and without audio comparison">
+      <div class="demo-status">
+        <span id="arcDemoState">Without ARC</span>
+        <span class="demo-readout" id="arcDemoReadout">full-room signal</span>
+      </div>
+
+      <div class="demo-wave" aria-hidden="true">
+        <span class="demo-bar" style="--level: 42"></span>
+        <span class="demo-bar" style="--level: 58"></span>
+        <span class="demo-bar" style="--level: 76"></span>
+        <span class="demo-bar" style="--level: 54"></span>
+        <span class="demo-bar" style="--level: 88"></span>
+        <span class="demo-bar" style="--level: 62"></span>
+        <span class="demo-bar" style="--level: 44"></span>
+        <span class="demo-bar" style="--level: 82"></span>
+        <span class="demo-bar" style="--level: 70"></span>
+        <span class="demo-bar" style="--level: 52"></span>
+        <span class="demo-bar" style="--level: 92"></span>
+        <span class="demo-bar" style="--level: 64"></span>
+        <span class="demo-bar" style="--level: 48"></span>
+        <span class="demo-bar" style="--level: 74"></span>
+        <span class="demo-bar" style="--level: 56"></span>
+        <span class="demo-bar" style="--level: 84"></span>
+        <span class="demo-bar" style="--level: 68"></span>
+        <span class="demo-bar" style="--level: 46"></span>
+        <span class="demo-bar" style="--level: 80"></span>
+        <span class="demo-bar" style="--level: 60"></span>
+        <span class="demo-bar" style="--level: 90"></span>
+        <span class="demo-bar" style="--level: 66"></span>
+        <span class="demo-bar" style="--level: 50"></span>
+        <span class="demo-bar" style="--level: 78"></span>
+        <span class="demo-bar" style="--level: 58"></span>
+        <span class="demo-bar" style="--level: 86"></span>
+        <span class="demo-bar" style="--level: 72"></span>
+        <span class="demo-bar" style="--level: 54"></span>
+      </div>
+
+      <div>
+        <div class="demo-controls">
+          <div class="demo-toggle" role="group" aria-label="Choose ARC processing mode">
+            <button class="active" type="button" data-arc-mode="dry" aria-pressed="true">Without ARC</button>
+            <button type="button" data-arc-mode="arc" aria-pressed="false">With ARC</button>
+          </div>
+          <button class="demo-play" id="arcDemoPlay" type="button">Play sample</button>
+        </div>
+      </div>
+
+      <div class="demo-metrics" aria-live="polite">
+        <div class="demo-metric">
+          <span>Peak energy</span>
+          <strong id="arcMetricPeak">Open</strong>
+        </div>
+        <div class="demo-metric">
+          <span>Harsh edge</span>
+          <strong id="arcMetricEdge">Present</strong>
+        </div>
+        <div class="demo-metric">
+          <span>Speech cue</span>
+          <strong id="arcMetricCue">Readable</strong>
+        </div>
+      </div>
+
+      <p class="demo-note">
+        This is a gentle synthetic demo for comparison only. It is not certified PPE performance or a medical claim.
+      </p>
     </div>
   </div>
 </section>
@@ -1345,52 +1598,238 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script>
-  gsap.registerPlugin(ScrollTrigger);
+  const hasMotionLib = window.gsap && window.ScrollTrigger;
 
-  // Anatomy exploded view — stagger reveal when section enters viewport
-  gsap.set('.anatomy-svg .part', { opacity: 0, y: 12 });
-  ScrollTrigger.create({
-    trigger: '#anatomy',
-    start: 'top 70%',
-    once: true,
-    onEnter: () => {
-      gsap.to('.anatomy-svg .part', {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        stagger: 0.12,
-        ease: 'power2.out',
-      });
-    },
-  });
+  if (hasMotionLib) {
+    gsap.registerPlugin(ScrollTrigger);
 
-  // Pipeline nodes — fade in sequentially when pipeline enters
-  gsap.set('.pipeline-diagram .node, .pipeline-diagram .node-label, .pipeline-diagram .node-sub', {
-    opacity: 0,
-  });
-  ScrollTrigger.create({
-    trigger: '#pipeline',
-    start: 'top 75%',
-    once: true,
-    onEnter: () => {
-      gsap.to('.pipeline-diagram .node', {
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.08,
-        ease: 'power2.out',
-      });
-      gsap.to('.pipeline-diagram .node-label, .pipeline-diagram .node-sub', {
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.05,
-        delay: 0.2,
-        ease: 'power2.out',
-      });
-    },
-  });
+    // Anatomy exploded view: stagger reveal when section enters viewport.
+    gsap.set('.anatomy-svg .part', { opacity: 0, y: 12 });
+    ScrollTrigger.create({
+      trigger: '#anatomy',
+      start: 'top 70%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.anatomy-svg .part', {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'power2.out',
+        });
+      },
+    });
 
-  // Refresh on load so sizes settle before the timeline locks in
-  window.addEventListener('load', () => ScrollTrigger.refresh());
+    // Pipeline nodes: fade in sequentially when pipeline enters.
+    gsap.set('.pipeline-diagram .node, .pipeline-diagram .node-label, .pipeline-diagram .node-sub', {
+      opacity: 0,
+    });
+    ScrollTrigger.create({
+      trigger: '#pipeline',
+      start: 'top 75%',
+      once: true,
+      onEnter: () => {
+        gsap.to('.pipeline-diagram .node', {
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.08,
+          ease: 'power2.out',
+        });
+        gsap.to('.pipeline-diagram .node-label, .pipeline-diagram .node-sub', {
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.05,
+          delay: 0.2,
+          ease: 'power2.out',
+        });
+      },
+    });
+  }
+
+  const arcDemo = (() => {
+    const consoleEl = document.getElementById('arcDemoConsole');
+    const playButton = document.getElementById('arcDemoPlay');
+    const modeButtons = document.querySelectorAll('[data-arc-mode]');
+    const stateEl = document.getElementById('arcDemoState');
+    const readoutEl = document.getElementById('arcDemoReadout');
+    const peakEl = document.getElementById('arcMetricPeak');
+    const edgeEl = document.getElementById('arcMetricEdge');
+    const cueEl = document.getElementById('arcMetricCue');
+    const bars = document.querySelectorAll('.demo-bar');
+
+    if (!consoleEl || !playButton || !modeButtons.length) return null;
+
+    let context;
+    let source;
+    let dryGain;
+    let arcGain;
+    let masterGain;
+    let animationFrame;
+    let mode = 'dry';
+    let isPlaying = false;
+
+    const profiles = {
+      dry: {
+        label: 'Without ARC',
+        readout: 'full-room signal',
+        peak: 'Open',
+        edge: 'Present',
+        cue: 'Readable',
+      },
+      arc: {
+        label: 'With ARC',
+        readout: 'peaks capped, edge softened',
+        peak: 'Capped',
+        edge: 'Softened',
+        cue: 'Readable',
+      },
+    };
+
+    const createSceneBuffer = (audioContext) => {
+      const duration = 8;
+      const length = Math.floor(audioContext.sampleRate * duration);
+      const buffer = audioContext.createBuffer(1, length, audioContext.sampleRate);
+      const data = buffer.getChannelData(0);
+      let noise = 0;
+
+      for (let i = 0; i < length; i += 1) {
+        const t = i / audioContext.sampleRate;
+        const beat = t % 1;
+        const kick = Math.sin(2 * Math.PI * (58 - beat * 22) * t) * Math.exp(-beat * 15) * 0.72;
+        const bass = Math.sin(2 * Math.PI * 92 * t) * 0.13;
+        const room = Math.sin(2 * Math.PI * 176 * t) * 0.065 + Math.sin(2 * Math.PI * 264 * t) * 0.035;
+        const cueGate = Math.max(0, Math.sin(2 * Math.PI * 0.5 * t));
+        const speechCue = Math.sin(2 * Math.PI * 720 * t) * cueGate * 0.075;
+        const shimmerGate = Math.max(0, Math.sin(2 * Math.PI * 0.75 * t + 1.7));
+        const shimmer = Math.sin(2 * Math.PI * 4800 * t) * shimmerGate * 0.05;
+        noise = noise * 0.985 + (Math.random() * 2 - 1) * 0.024;
+        data[i] = (kick + bass + room + speechCue + shimmer + noise) * 0.42;
+      }
+
+      return buffer;
+    };
+
+    const buildGraph = () => {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      if (!AudioContext) {
+        throw new Error('Web Audio is not supported in this browser.');
+      }
+      context = new AudioContext();
+
+      source = context.createBufferSource();
+      source.buffer = createSceneBuffer(context);
+      source.loop = true;
+
+      dryGain = context.createGain();
+      arcGain = context.createGain();
+      masterGain = context.createGain();
+
+      const arcShelf = context.createBiquadFilter();
+      arcShelf.type = 'highshelf';
+      arcShelf.frequency.value = 3200;
+      arcShelf.gain.value = -9;
+
+      const arcCompressor = context.createDynamicsCompressor();
+      arcCompressor.threshold.value = -28;
+      arcCompressor.knee.value = 12;
+      arcCompressor.ratio.value = 6;
+      arcCompressor.attack.value = 0.006;
+      arcCompressor.release.value = 0.18;
+
+      dryGain.gain.value = mode === 'dry' ? 1 : 0;
+      arcGain.gain.value = mode === 'arc' ? 1 : 0;
+      masterGain.gain.value = 0.16;
+
+      source.connect(dryGain);
+      source.connect(arcShelf);
+      arcShelf.connect(arcCompressor);
+      arcCompressor.connect(arcGain);
+      dryGain.connect(masterGain);
+      arcGain.connect(masterGain);
+      masterGain.connect(context.destination);
+      source.start();
+    };
+
+    const setMode = (nextMode) => {
+      mode = nextMode;
+      const profile = profiles[mode];
+
+      consoleEl.classList.toggle('is-arc', mode === 'arc');
+      stateEl.textContent = profile.label;
+      readoutEl.textContent = profile.readout;
+      peakEl.textContent = profile.peak;
+      edgeEl.textContent = profile.edge;
+      cueEl.textContent = profile.cue;
+
+      modeButtons.forEach((button) => {
+        const active = button.dataset.arcMode === mode;
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+
+      if (context && dryGain && arcGain) {
+        const now = context.currentTime;
+        dryGain.gain.cancelScheduledValues(now);
+        arcGain.gain.cancelScheduledValues(now);
+        dryGain.gain.setValueAtTime(dryGain.gain.value, now);
+        arcGain.gain.setValueAtTime(arcGain.gain.value, now);
+        dryGain.gain.linearRampToValueAtTime(mode === 'dry' ? 1 : 0, now + 0.45);
+        arcGain.gain.linearRampToValueAtTime(mode === 'arc' ? 1 : 0, now + 0.45);
+      }
+    };
+
+    const animateBars = () => {
+      if (!isPlaying) return;
+      const time = performance.now() / 1000;
+      bars.forEach((bar, index) => {
+        const base = Number(bar.style.getPropertyValue('--level')) || 50;
+        const motion = Math.sin(time * 3.2 + index * 0.74) * 12 + Math.sin(time * 5.4 + index) * 5;
+        const arcTrim = mode === 'arc' ? 0.72 : 1;
+        const level = Math.max(14, Math.min(96, (base + motion) * arcTrim));
+        bar.style.height = `${level}%`;
+      });
+      animationFrame = requestAnimationFrame(animateBars);
+    };
+
+    const start = async () => {
+      if (!context) buildGraph();
+      if (context.state === 'suspended') await context.resume();
+      isPlaying = true;
+      playButton.textContent = 'Pause sample';
+      cancelAnimationFrame(animationFrame);
+      animateBars();
+    };
+
+    const pause = async () => {
+      if (context && context.state === 'running') await context.suspend();
+      isPlaying = false;
+      playButton.textContent = 'Play sample';
+      cancelAnimationFrame(animationFrame);
+    };
+
+    modeButtons.forEach((button) => {
+      button.addEventListener('click', () => setMode(button.dataset.arcMode));
+    });
+
+    playButton.addEventListener('click', () => {
+      if (isPlaying) {
+        pause();
+      } else {
+        start().catch(() => {
+          playButton.textContent = 'Audio unavailable';
+          readoutEl.textContent = 'tap failed, try reloading';
+        });
+      }
+    });
+
+    setMode(mode);
+    return { setMode };
+  })();
+
+  // Refresh on load so sizes settle before the timeline locks in.
+  if (hasMotionLib) {
+    window.addEventListener('load', () => ScrollTrigger.refresh());
+  }
 </script>
 
 </body>
